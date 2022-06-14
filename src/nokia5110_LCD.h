@@ -120,6 +120,7 @@ void LCD_goXY(uint8_t x, uint8_t y);
  * These functions draw in a buffer variable. It's necessary to use LCD_refreshScr() or LCD_refreshArea()
  * in order to send data to the LCD.
  */
+void LCD_draw(const unsigned char bitmap[], uint8_t x, uint8_t y, const uint8_t h, const uint8_t w);
 void LCD_refreshScr();
 void LCD_refreshArea(uint8_t xmin, uint8_t ymin, uint8_t xmax, uint8_t ymax);
 void LCD_setPixel(uint8_t x, uint8_t y, bool pixel);
