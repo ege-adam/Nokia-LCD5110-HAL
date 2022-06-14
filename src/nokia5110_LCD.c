@@ -250,6 +250,31 @@ void LCD_drawVLine(int x, int y, int l){
 }
 
 /*
+ * @brief Draws a bitmap image from char array.
+ * @param bitmap: char array of the image
+ * @param x: starting point on the x-axis
+ * @param y: starting point on the y-axis
+ * @param w: width of the image
+ * @param w: height of the image
+ */
+void LCD_draw(const unsigned char bitmap[], uint8_t x, uint8_t y, const uint8_t w, const uint8_t h) {
+
+	uint8_t byteWidth = (w + 7) / 8;
+	uint8_t byte = 0;
+
+	for (uint8_t j = 0; j < h; j++, y++)
+	{
+		for (uint8_t i = 0; i < w; i++)
+		{
+		  if (i & 7) byte <<= 1;
+		  else byte = bitmap[j * byteWidth + i / 8];
+		  if (byte & 0x80) LCD_setPixel(x + i, y, false);
+		  else LCD_setPixel(x + i, y, true);
+		}
+	}
+}
+
+/*
  * @brief abs function used in LCD_drawLine
  * @param x: any integer
  * @return absolute value of x
