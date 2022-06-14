@@ -170,6 +170,15 @@ void LCD_refreshScr(){
 }
 
 /*
+ * @brief Clears buffer.
+ */
+void LCD_clrBuffer(){
+	for(int i = 0; i < 504; i++){
+		lcd.buffer[i] = 0;
+	}
+}
+
+/*
  * @brief Updates a square of the screen according to given values
  * @param xmin: starting point on the x-axis
  * @param xmax: ending point on the x-axis
