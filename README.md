@@ -2,6 +2,8 @@
 
 In this fork, I added bitmap drawing functionality to the original library. Tested with image2cpp tool ( https://javl.github.io/image2cpp/ ).
 
+# Original README
+
 This library is used to control Nokia's 5110 LCD on STM32 devices.
 It was built on STM's HAL and intends to offer an easy and fast way to use 5110 using HAL's GPIOs.
 It's based on two other 5110 libraries:
